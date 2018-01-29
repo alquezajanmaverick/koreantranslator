@@ -1,0 +1,22 @@
+<div flex ng-repeat="item in data.items | filter:query.data">
+  	<md-card>
+	    <md-card-title>
+			<md-card-title-text>
+				<span class="md-headline">{{item.EngWord}}</span>
+			</md-card-title-text>
+	    </md-card-title>
+	    <md-card-content>
+			<p>
+				{{item.KorWord}}
+			</p>
+			<p>
+				{{item.pronunciation}}
+				</p>
+			</md-card-content>
+	    <md-card-actions layout="row" layout-align="end center">
+			<md-button class="md-icon-button" aria-label="Favorite" ng-click="talkNow(item.KorWord)">
+				<md-icon><i class="material-icons">volume_up</i></md-icon>
+			</md-button>
+	    </md-card-actions>
+  	</md-card>
+</div>

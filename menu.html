@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="my-menu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/onsenui.css">
+    <link rel="stylesheet" href="css/onsen-css-components.min.css">
+    <script src="script/angular.min.js"></script>
+    <script src="js/onsenui.js"></script>
+    <script src="js/angular-onsenui.min.js"></script>
+    <script src="script/menu.js"></script>
+    <title>Korean Learning App</title>
+</head>
+<body ng-controller="my-menuCtrl">
+    <div ng-repeat="x in xdata">
+        {{x.catID}}
+        {{x.Name}}
+    </div>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="node_modules/angular-material/angular-material.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+	<body ng-app="YourApp"  ng-controller="YourController" md-swipe-right="onSwipeRight()">
+	<div layout="column" style="height:100vh;" ng-cloak>
+		<md-toolbar class="md-hue-2">
+	      	<div class="md-toolbar-tools">
+		        <md-button class="md-icon-button" aria-label="Settings" ng-disabled="true">
+		          <md-icon ng-click="toggleLeft()"><i class="material-icons">menu</i></md-icon>
+		        </md-button>
+
+		        <h2 flex md-truncate>{{title.name}}</h2>
+			 	<input ng-show="showSearch" ng-model="query.data" type="text" placeholder="Search Here" >
+		        <div ng-click="query.data='';showSearch = !showSearch"><i class="material-icons">search</i></div>
+	            <i class="material-icons">more_vert</i>
+	      	</div>
+	    </md-toolbar>
+		
+	  	<section layout="row" flex>
+		
+	    <md-sidenav
+	        class="md-sidenav-left"
+	        md-component-id="left"
+	        md-is-locked-open="$mdMedia('gt-md')"
+	        md-whiteframe="4">
+
+	      <md-toolbar class="md-theme-indigo">
+	        <h1 class="md-toolbar-tools">Category</h1>
+	      </md-toolbar>
+	      <md-content layout-padding ng-controller="LeftCtrl">
+	        <md-button ng-click="close()" class="md-primary" hide-gt-md>
+	          Close Sidenav Left
+	        </md-button>
+			
+	        <md-list ng-cloak>
+				  <md-list-item ng-repeat="category in categories" class="secondary-button-padding" ng-click="doPrimaryAction(category.catID,category.Name)">
+				    <p>{{category.Name}}</p>
+				    <!--<md-button class="md-secondary" ng-click="doSecondaryAction($event)">Go</md-button>-->
+		  	</md-list-item>
+					
+	        </md-list>
+			<md-divider></md-divider>
+			<md-list ng-cloak>
+				  	<md-list-item class="secondary-button-padding" ng-click="GotoAbout()">
+				    <p>About Us</p>
+				    <!--<md-button class="md-secondary" ng-click="doSecondaryAction($event)">Go</md-button>-->
+		  			</md-list-item>
+		  	</md-list>
+	      </md-content>
+
+	    </md-sidenav>
+
+	    <md-content layout="column" flex>
+	    	<div ng-view></div>
+	    	
+			
+	    </md-content>
+
+	  </section>
+
+	</div>
+	<script src="talkify.js"></script>
+	<script src="node_modules/angular/angular.js"></script>
+	<script src="node_modules/angular-route/angular-route.js"></script>
+	<script src="node_modules/angular/angular-aria.js"></script>
+	<script src="node_modules/angular/angular-animate.js"></script>
+	<script src="node_modules/angular-material/angular-material.js"></script>
+	<script src="script/main.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="my-app">
+<head>
+    <meta http-equiv='Content-Type' content='text/html; charset=utf-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/onsenui.css">
+    <link rel="stylesheet" href="css/onsen-css-components.min.css">
+    <script src="script/angular.min.js"></script>
+    <script src="js/onsenui.js"></script>
+    <script src="js/angular-onsenui.min.js"></script>
+    <script src="script/script.js"></script>
+    <script src="js/jquery-3.2.1.slim.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+        
+    <ons-page ng-controller="my-controller">
+        <ons-toolbar class="toolbar">
+            <div class="center toolbar__center">Korean Translator</div>
+        </ons-toolbar> 
+        <div class="content">
+            <ons-row>
+                <ons-col width="100%">
+                    <div style="height: 200px; padding: 1px 0 0 0;">
+                        <div class="card card--material">
+                            <div class="card__content card--material__content">
+                                <textarea type="text" id="source" rows="5" class="textarea textarea--transparent" style="width:100%;font-size:2em" placeholder="type your text here..."></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </ons-col>
+                <ons-col style="margin:18px 8px 0px;">
+                    <ons-button modifier="large material" id="translate">Translate Text</ons-button>                        
+                </ons-col>
+                <ons-col width="100%">
+                    <div style="height: 200px; padding: 1px 0 0 0;">
+                        <div class="card card--material">
+                            <div class="card__content card--material__content">
+                                <textarea type="text" id="output" rows="5" class="textarea textarea--transparent" style="width:100%;font-size:2em" placeholder="type your text here..."></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </ons-col>
+            </ons-row>
+            <ons-speed-dial position="bottom right"
+            direction="left">
+                <ons-fab>
+                    <ons-icon
+                        icon="md-menu">
+                    </ons-icon>
+                </ons-fab>
+                <ons-speed-dial-item>
+                    <ons-icon
+                        icon="md-copy">
+                    </ons-icon>
+                </ons-speed-dial-item>
+                <ons-speed-dial-item>
+                    <ons-icon
+                        icon="md-format-color-text">
+                    </ons-icon>
+                </ons-speed-dial-item>
+                <ons-speed-dial-item id="mic" onclick="recognition.start()">
+                    <ons-icon
+                        icon="md-mic">
+                    </ons-icon>
+                </ons-speed-dial-item>
+            </ons-speed-dial>
+        </div>
+        <ons-toast id="toaster"><p id="recording-instructions"></p></ons-toast>
+    </ons-page>
+    
+    <div id="json" class="bx"></div>
+    <script src="talkify.js"></script>
+    <script src="translate.js"></script>
+    <script src="script/speech-synthesis.js"></script>
+    
+    
+</body>
+</html>
